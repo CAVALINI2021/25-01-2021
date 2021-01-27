@@ -1,0 +1,99 @@
+package br.senai.sp.jandira.model;
+
+public class Conta {
+	
+	private String tipo;
+	private double saldo;
+	private String numero;
+	private String titular;
+	private boolean ativa;
+	private double chequeEspecial;
+	
+	//TIPO
+	public void setTipo(String tipo) {
+		if (tipo.equals("Corrente") || tipo.equals("Poupança")) {
+			this.tipo = tipo;
+		}else {
+			System.out.println("Tipo inválido!");
+		}
+	}			
+	
+	public String getTipo() {
+		return this.tipo;
+	}
+	
+	//TITULAR
+	public void setTitular(String titular) {
+		this.titular = titular;
+	}
+	
+	
+	public String getTitular() {
+		return this.titular;
+	}
+	
+	//NUMERO
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getNumero() {
+		return this.numero;
+	}
+	
+	//CHEQUE ESPECIAL
+	public void setChequeEspecial(double ChequeEspecial) {
+		this.chequeEspecial = chequeEspecial;
+	}
+	
+	public double getChequeEspecial() {
+		return this.chequeEspecial;
+	}
+	
+	//ATIVA
+	public void isAtiva(boolean ativa ) {
+		this.ativa = ativa ;
+	}
+	
+	
+	//DEPOSITAR
+	public void depositar(double valorDeposito) {	
+		if (valorDeposito < 0) {
+			System.out.println("Valor inválido!!!");
+		} else {
+			saldo += valorDeposito;
+		}
+		
+	}
+	
+	//SALDO DA CONTA
+	public void mostrarSaldoDaConta() {
+		System.out.println("Saldo: " + saldo);
+		System.out.println("Saldo + Limite: " + (saldo + chequeEspecial));
+	}
+	
+	//SALDO
+	public double getSaldo(){
+		return saldo;
+	}
+	
+	//SACAR
+	public void sacar(double valorDoSaque) {	
+		if ((saldo + chequeEspecial) >= valorDoSaque) {
+			saldo -= valorDoSaque;
+		} else {
+			System.out.println("Saldo insuficiente!");
+		}	
+	}
+	
+	//TRANSFERIR
+	public void transferir() {
+	}
+	
+}
+	
+	
+
+
+	
+	
